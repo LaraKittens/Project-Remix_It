@@ -1,0 +1,182 @@
+@import "../../Root.scss";
+
+body.active-register {
+  overflow-y: hidden;
+}
+
+.btn-register {
+  display: block;
+  font-size: 18px;
+  text-decoration: underline;
+  color: var(--dark-h2);
+  margin-top: 15px;
+}
+
+.register,
+.overlay {
+  width: 100 vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+
+.register-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 20px;
+  max-width: 600px;
+  min-width: 300px;
+  background-color: var(--dark-cover);
+  width: 80%;
+  height: 75%;
+  margin-top: 5rem;
+}
+
+.close-register {
+  position: absolute;
+  right: 0;
+  padding: 5px 7px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  width: 2em;
+  height: 2em;
+  color: white;
+  font-size: 150%;
+  font-weight: bolder;
+  text-shadow: 1px 1px 2px white, 0 0 1em var(--dark-blue),
+    0 0 0.2em (--dark-blue);
+  font-weight: lighter;
+}
+
+.nouveau-compte {
+  
+    font-size: 2em;
+    color: var(--dark-h2);
+  
+}
+
+.name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  gap: 0.4em;
+
+  input {
+    border: solid var(--dark-grey);
+    border-radius: 16px;
+    height: 3em;
+    width: 22em;
+    background-color: var(--dark-grey);
+    color: white;
+    margin-top: 25px;
+  }
+}
+
+::placeholder {
+  color: var(--dark-white);
+  padding-left: 15px;
+  font-size: large;
+}
+
+.email1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  gap: 0.4em;
+
+  input {
+    border: solid var(--dark-grey);
+    border-radius: 16px;
+    height: 3em;
+    width: 22em;
+    background-color: var(--dark-grey);
+    color: white;
+    margin-top:20px;
+  }
+}
+
+.password1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  gap: 0.4em;
+
+  input {
+    border: solid var(--dark-grey);
+    border-radius: 16px;
+    height: 3em;
+    width: 22em;
+    background-color: var(--dark-grey);
+    color: white;
+    margin-top: 20px;
+  }
+}
+
+.sign-up {
+  font-family: Arial, Helvetica, sans-serif;
+    border: solid var(--dark-blue);
+    border-radius: 7px;
+    font-size: 18px;
+    color: var(--dark-white);
+    height: 3em;
+    width: 12em;
+    background-color: var(--dark-blue);
+    margin-top: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .register-content {
+    max-width: 900px;
+    
+  }
+
+  .nouveau-compte {
+    font-size: 40px;
+  }
+  .name {
+   
+  
+    input {
+      width: 50em;
+      height: 4em;
+    }
+  }
+
+  .email1 {
+   
+  
+    input {
+      width: 50em;
+      height: 4em;
+    }
+  }
+
+  .password1 {
+   
+  
+    input {
+      width: 50em;
+      height: 4em;
+    }
+  }
+
+
+
+  .sign-up {
+    width: 30em;
+      height: 3.5em;
+      font-size: 18px;
+  }
+}
