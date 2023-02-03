@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function Register() {
   const [register, setRegister] = useState(false);
   const [name, setName] = useState("");
-  const [mail, setMail] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const toggleRegister = (e) => {
@@ -26,7 +26,7 @@ export default function Register() {
   };
 
   const handleChangeEmail = (e) => {
-    setMail(e.target.value);
+    setEmail(e.target.value);
   };
 
   const handleChangePassword = (e) => {
@@ -37,7 +37,7 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !mail || !password) {
+    if (!name || !email || !password) {
       alert("Tu dois écrire un nom, un email et un mot de passe");
     } else {
       axios
@@ -45,7 +45,7 @@ export default function Register() {
           `${import.meta.env.VITE_BACKEND_URL}/api/users`,
           {
             name,
-            mail,
+            email,
             password,
           },
           { withCredentials: true }
@@ -63,75 +63,48 @@ export default function Register() {
   };
 
   return (
-    <div className="create-register">
-      <p
-        className="btn-register"
-        onClick={toggleRegister}
-        onKeyDown={toggleRegister}
-        role="presentation"
-        aria-label="close"
-      >
-        Créez un compte !
-      </p>
-
-      {register && (
-        <div className="register">
-          <div
-            onClick={toggleRegister}
-            onKeyDown={toggleRegister}
-            className="overlay"
-            role="button"
-            tabIndex={0}
-            aria-label="close"
-          />
-          <div className="register-content">
-            <h2 className="nouveau-compte">Nouveau compte</h2>
-            <form onSubmit={handleSubmit} className="form">
-              <label htmlFor="name" className="name">
-                <input
-                  type="name"
-                  id="name"
-                  required
-                  placeholder="Nom / Prénom"
-                  value={name}
-                  onChange={handleChangeName}
-                />
-              </label>
-              <label htmlFor="email" className="email1">
-                <input
-                  type="email"
-                  id="email"
-                  required
-                  placeholder="Email"
-                  value={mail}
-                  onChange={handleChangeEmail}
-                />
-              </label>
-              <label htmlFor="password" className="password1">
-                <input
-                  type="password"
-                  id="password"
-                  required
-                  placeholder="Mot de passe"
-                  value={password}
-                  onChange={handleChangePassword}
-                />
-              </label>
-              <button type="submit" className="sign-up">
-                Inscription
-              </button>
-            </form>
-            <button
-              type="button"
-              className="close-register"
-              onClick={toggleRegister}
-              onKeyDown={toggleRegister}
-            >
-              X
-            </button>
-          </div>
-        </div>
-      )}
+    <div className="register bg-stone-900">
+      <div className="register-content">
+        <h2 className="nouveau-compte">Nouveau compte</h2>
+        <form onSubmit={handleSubmit} className="form">
+          <label htmlFor="name" className="name">
+            <input
+              type="name"
+              id="name"
+              autoComplete="name"
+              required
+              placeholder="Nom / Prénom"
+              value={name}
+              onChange={handleChangeName}
+            />
+          </label>
+          <label htmlFor="email" className="email1">
+            <input
+              type="email"
+              id="email"
+              autoComplete="email"
+              required
+              placeholder="Email"
+              value={email}
+              onChange={handleChangeEmail}
+            />
+          </label>
+          <label htmlFor="password" className="password1">
+            <input
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              required
+              placeholder="Mot de passe"
+              value={password}
+              onChange={handleChangePassword}
+            />
+          </label>
+          <button type="submit" className="sign-up">
+            Inscription
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

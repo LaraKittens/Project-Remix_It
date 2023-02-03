@@ -86,14 +86,13 @@ const destroy = (req, res) => {
 };
 
 const login = (req, res) => {
-  const { mail, password } = req.body;
+  const { email, password } = req.body;
 
-  if (!mail || !password) {
-    // peut etre add un .send
+  if (!email || !password) {
     return res.sendStatus(400);
   }
 
-  return models.user.findByEmail(mail).then(async ([rows]) => {
+  return models.user.findByEmail(email).then(async ([rows]) => {
     if (!rows.length) {
       return res.sendStatus(403);
     }
@@ -116,46 +115,6 @@ const login = (req, res) => {
   });
 };
 
-const tutosAndExercicesWithId = (req, res) => {
-  models.user
-    .findTutoAndExercice(req.user.id)
-    .then(([rows]) => {
-      if (!rows.length) {
-        res.status(404).send("User not found");
-      } else {
-        const tutos = [];
-        for (let i = 0; i < rows.length; i += 1) {
-          if (i === 0 || tutos[tutos.length - 1].tutoId !== rows[i].tutoId) {
-            const tuto = {
-              tutoId: rows[i].tutoId,
-              tutoName: rows[i].tutoName,
-              exercices: [
-                { id: rows[i].exerciceId, isCheck: rows[i].exerciceCheck },
-              ],
-            };
-            tutos.push(tuto);
-          } else {
-            tutos[tutos.length - 1].exercices.push({
-              id: rows[i].exerciceId,
-              isCheck: rows[i].exerciceCheck,
-            });
-          }
-        }
-        tutos.forEach((element, i) => {
-          tutos[i].exercicesCheck = element.exercices.reduce(
-            (accumulator, currentValue) => accumulator + currentValue.isCheck,
-            0
-          );
-        });
-        res.send(tutos);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
 module.exports = {
   browse,
   read,
@@ -163,5 +122,4 @@ module.exports = {
   add,
   destroy,
   login,
-  tutosAndExercicesWithId,
 };

@@ -17,6 +17,7 @@ specifiers:
   mysql2: ^2.3.3
   nodemon: ^2.0.20
   prettier: 2.8.2
+  react-icons: ^4.7.1
 
 dependencies:
   argon2: 0.30.3
@@ -28,6 +29,7 @@ dependencies:
   joi: 17.7.0
   jsonwebtoken: 9.0.0
   mysql2: 2.3.3
+  react-icons: 4.7.1
 
 devDependencies:
   eslint: 8.33.0
@@ -1875,6 +1877,12 @@ packages:
       http-errors: 2.0.0
       iconv-lite: 0.4.24
       unpipe: 1.0.0
+    dev: false
+
+  /react-icons/4.7.1:
+    resolution: {integrity: sha512-yHd3oKGMgm7zxo3EA7H2n7vxSoiGmHk5t6Ou4bXsfcgWyhfDKMpyKfhHR6Bjnn63c+YXBLBPUql9H4wPJM6sXw==}
+    peerDependencies:
+      react: '*'
     dev: false
 
   /readable-stream/3.6.0:

@@ -17,6 +17,13 @@ class musicHistoryManager extends AbstractManager {
       musicHistory.id,
     ]);
   }
+
+  findThree(userId) {
+    return this.connection.query(
+      `select * from ${this.table} WHERE userId = ? ORDER BY date DESC LIMIT 3`,
+      [userId]
+    );
+  }
 }
 
 module.exports = musicHistoryManager;
