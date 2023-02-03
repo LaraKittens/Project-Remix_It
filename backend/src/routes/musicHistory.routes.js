@@ -6,6 +6,7 @@ const dataCheck = require("../controllers/dataCheck");
 
 router.get("/", musicHistoryControllers.browse);
 router.get("/:id", musicHistoryControllers.read);
+router.get("/three/:id", musicHistoryControllers.findThree);
 
 router.use(verifyToken, adminCheck);
 

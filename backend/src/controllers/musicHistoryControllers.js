@@ -82,9 +82,9 @@ const destroy = (req, res) => {
     });
 };
 
-const findByTutoId = (req, res) => {
+const findThree = (req, res) => {
   models.musicHistory
-    .findByTutoId(req.params.id)
+    .findThree(req.params.id)
     .then(([rows]) => {
       res.send(rows);
     })
@@ -100,5 +100,5 @@ module.exports = {
   edit,
   add,
   destroy,
-  findByTutoId,
+  findThree,
 };

@@ -16,16 +16,10 @@ class UserManager extends AbstractManager {
     ]);
   }
 
-  findByEmail(mail) {
-    return this.connection.query(`SELECT * FROM ${this.table} WHERE mail = ?`, [
-      mail,
-    ]);
-  }
-
-  findTutoAndExercice(userId) {
+  findByEmail(email) {
     return this.connection.query(
-      `select t.id as tutoId, t.name as tutoName, e.id as exerciceId, eu.isCheck as exerciceCheck from tuto as t join exercices as e on t.id = e.tutoId join exerciceUser as eu on e.id = eu.exerciceId join user as u on u.id = eu.userId where u.id=? order by t.id, e.id`,
-      [userId]
+      `SELECT * FROM ${this.table} WHERE email = ?`,
+      [email]
     );
   }
 }

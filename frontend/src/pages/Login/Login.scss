@@ -1,5 +1,8 @@
 @import '../../Root.scss';
 
+#login{
+  width: 100vw;
+}
 .container {
   display: flex;
   align-items: center;
@@ -7,56 +10,17 @@
   flex-direction: column;
   background-color: var(--dark-cover);
   height: 100vh;
-  padding: 0;
-  margin: 0;
+  width: 100vw;
 
   .lignebleu {
-    color: var(--dark-title);
     font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 1em;
-    font-size: 3em;
+    margin-bottom: .5em;
+    font-size: 3rem;
   }
 
   .lignebleuAdmin {
     color: red;
   }
-
-  .img {
-    background-image: url(../../assets/login3.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 15rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .img::before {
-    position: absolute;
-    content: "";
-    display: inline-block;
-    background: transparent;
-    border-top: 100px solid rgba(0, 0, 0, 0);
-    border-left: 0px solid #f5d97b;
-    border-bottom: 0px solid #d94948;
-    border-right: 100vw solid var(--dark-cover);
-    bottom: 0px;
-    left: 0px;
-  }
-}
-
-.triangle {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  width: 100vw;
-  height: 25px;
-  background-color: var(--dark-blue);
-  transform: translate(-50%, -50%) scale(1.2) rotateZ(0deg);
-}
-
-.triangleAdmin{
-  background-color: red;
 }
 
 .connect {
@@ -116,13 +80,12 @@
 
   .login {
     font-family: Arial, Helvetica, sans-serif;
-    border: solid var(--dark-blue);
-    border-radius: 7px;
-    font-size: 15px;
+    border: solid rgb(185 28 28) ;
+    border-radius: 8px;
+    font-size: 16px;
     color: var(--dark-white);
-    height: 3em;
+    height: 3rem;
     width: 14em;
-    background-color: var(--dark-blue);
   }
 
   .loginAdmin{
@@ -145,7 +108,7 @@
 .invité {
   background-color: var(--dark-grey);
   border: solid var(--dark-grey);
-  border-radius: 7px;
+  border-radius: 8px;
   color: var(--dark-white);
   height: 3em;
   width: 14em;
